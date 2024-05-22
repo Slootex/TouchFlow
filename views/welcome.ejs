@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="tailwind.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="bg-zinc-800">
+    <div id="welcome-div" class="flex hidden h-screen justify-center items-center animate__animated ">
+        <div id="animation-hider-1" class="w-96 h-96 bg-zinc-950 absolute welcomeanimation-left"></div>
+        <div id="animation-hider-2" class="w-96 h-96 bg-zinc-950 absolute welcomeanimation-right"></div>
+
+        <p class="text-white text-center text-5xl font-bold m-auto fontstyle">Welcome</p> 
+    </div>
+
+    <div class=" flex h-screen justify-center items-center animate__animated " id="setup-div">
+        <div class="w-96" id="step-1">
+            <!--<p class="text-white text-3xl text-center">Start using your TouchFlow</p>-->
+            <p class="text-white text-3xl text-center">Welcome to your TouchFlow</p>
+            <div class="bg-zinc-800 w-full mt-8 rounded-full flex justify-end">
+                <select style="appearance: none;" onchange="document.getElementById('next-step-button').classList.remove('hidden')" name="" id="" class="w-full outline-none rounded-full bg-zinc-700 border-none text-white px-4 pt-1.5 pb-2 text-xl">
+                    <option value="" class="hidden">Please select your Language</option>
+                    <% countries.forEach(function(value, key) { %>
+                        <option value="<%= key %>"><%= value %></option>
+                    <% }); %>
+
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 absolute text-white justify-end mt-2.5 mr-3">
+                    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                </svg>                  
+            </div>
+        </div>
+
+        <div id="step-2" class="hidden w-96">
+            <div class="flex">
+                <p class="text-white text-3xl text-left">Persönliche Daten</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white ml-2 mt-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                  
+            </div>
+            <div class="w-full pb-8 rounded-md bg-zinc-700 mt-8 px-4 py-2">
+                <div>
+                    <p class="text-white text-xl font-semibold mb-2">Name</p>
+                    <input type="Text" class="w-full accent-white placeholder:text-white bg-zinc-700 px-4 py-2 h-10 mt-2 rounded-md border border-zinc-500 text-white">  
+                </div>
+                <div class="mt-2">
+                    <p class="text-white text-xl font-semibold mb-2">Geburtsdatum</p>
+                    <div class="flex justify-end">
+                        <input type="date" style="appearance: none;" oninput="document.getElementById('next-step-button').classList.remove('hidden')" class="w-full date-input accent-white placeholder:text-white bg-zinc-700 px-4 py-2 h-10 mt-2 rounded-md border border-zinc-500 text-white"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute text-white justify-end mt-4 mr-3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                        </svg>
+                    </div>
+                      
+                </div>
+                  
+            </div>
+        </div>
+
+        <div class="w-96 hidden" id="step-3">
+            <div class=" flex">
+                <p class="text-white text-3xl text-left">WLAN einrichten</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 ml-4 mt-2 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                  </svg>
+            </div>
+            <div class="w-full h-60 rounded-md bg-zinc-700 mt-8 px-2 py-2">
+                <ul>
+                    <li onclick="selectWlan('1')" id="wlan-1" class="text-white text-xl py-1 px-3">MagentaBox-3421
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white float-right">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
+                          </svg>                          
+                    </li>
+                    <li class="text-white text-xl py-1 border border-zinc-600 border-l-0 border-r-0 px-3">MagentaBox-3421 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white float-right">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
+                          </svg>
+                          
+                    </li>
+                    <li class="text-white text-xl py-1 border border-zinc-600 border-l-0 border-r-0 px-3">MagentaBox-3421 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white float-right">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
+                          </svg>
+                          
+                    </li>
+                    <li class="text-white text-xl py-1 border border-zinc-600 border-l-0 border-r-0 px-3">MagentaBox-3421 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white float-right">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
+                          </svg>
+                          
+                    </li>
+
+                </ul>
+            </div>
+            <div>
+                <div class="relative z-10 hidden" id="wlan-password-modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                  
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div class="relative transform overflow-hidden rounded-lg bg-zinc-700 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                          <div class="bg-zinc-700 px-4 pb-4 pt-4 sm:pb-4">
+                            <div>
+                              <p class="text-white text-xl font-semibold">Passwort</p>
+                              <input type="password" class="w-full accent-white placeholder:text-white bg-zinc-700 px-4 py-2 h-10 mt-2 rounded-md border border-zinc-500 text-white" placeholder="********">
+                            </div>
+
+                            <div class="w-full h-10 mb-2">
+                                <button class="bg-zinc-600 rounded-full px-4 py-2 text-white text-md float-right mt-4">Verbinden</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <div id="step-4" class="hidden w-96">
+            <div class="flex">
+                <p class="text-white text-3xl text-left">Standort</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white ml-2 mt-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+            </div>
+            <div class="w-full h-60 rounded-md bg-zinc-700 mt-8 px-4 py-2">
+                <div>
+                    <p class="text-white text-xl font-semibold mb-2">Land</p>
+                    <div class="flex justify-end">
+                        <select id="standort-country" style="appearance: none;" onchange="document.getElementById('next-step-button').classList.remove('hidden')" name="" id="" class="w-full outline-none rounded-full bg-zinc-600 border-none px-3 text-white pt-1.5 pb-2 text-xl">
+                            <% countries.forEach(function(value, key) { %>
+                                <option value="<%= key %>"><%= value %></option>
+                            <% }); %>
+        
+                        </select>      
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 absolute text-white justify-end mt-2.5 mr-3">
+                            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        </svg>   
+                    </div>     
+                    <p class="text-sky-200 text-right text-md mt-1 mr-2" onclick="getCountryByIP()">Standort erfassen</p>   
+                </div>
+                <div class="mt-2">
+                    <p class="text-white text-xl font-semibold mb-2">Stadt</p>
+                    <div class="flex justify-end">
+                        <input style="appearance: none;" onchange="document.getElementById('next-step-button').classList.remove('hidden')" name="" id="" class="w-full outline-none rounded-full bg-zinc-600 px-3 border-none text-white pt-1.5 pb-2 text-xl">
+                        
+                    </div>     
+                </div>
+                  
+            </div>
+        </div>
+
+        <button type="button" onclick="backStep()" id="back-step-button" class="hidden bg-zinc-700 rounded-full px-4 py-2 text-white text-xl absolute bottom-16 left-16">Zurück</button>
+        <button type="button" onclick="nextStep()" id="next-step-button" class="hidden bg-zinc-700 rounded-full px-4 py-2 text-white text-xl absolute bottom-16 right-16">Weiter</button>
+    </div>
+
+    <script>
+        let step = 1;
+        function nextStep() {
+            document.getElementById("step-"+step).classList.add('hidden');
+            step++;
+            document.getElementById("step-"+step).classList.remove('hidden');
+            document.getElementById('next-step-button').classList.add('hidden');
+            document.getElementById('back-step-button').classList.remove('hidden');
+        }
+
+        function backStep() {
+            document.getElementById("step-"+step).classList.add('hidden');
+            step--;
+            document.getElementById("step-"+step).classList.remove('hidden');
+            if(step != 1) {
+                document.getElementById('back-step-button').classList.remove('hidden');
+                document.getElementById('next-step-button').classList.remove('hidden');
+
+            } else {
+                document.getElementById('back-step-button').classList.add('hidden');
+                document.getElementById('next-step-button').classList.remove('hidden');
+            }
+        }
+
+        function selectWlan(id) {
+            document.getElementById('wlan-'+id).classList.add('bg-zinc-400', 'rounded-md');
+            document.getElementById('wlan-password-modal').classList.remove('hidden');
+
+            
+        }
+
+        function getCountryByIP()    {
+            $.get("https://api.country.is/<% ip %>", function(data) {
+                document.getElementById('standort-country').value = data["country"];
+            })
+        }
+    </script>
+   
+    <style>
+        .fontstyle {
+            font-family:  Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            letter-spacing: 3px;
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+        }
+
+        .welcomeanimation-left {
+            animation-name: welcomeanimationleft;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        .welcomeanimation-right {
+            animation-name: welcomeanimationright;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+
+        ::-ms-reveal {
+            filter: invert(100%);
+        }
+        
+        @keyframes welcomeanimationleft {
+            from {margin-right: 0rem}
+            to {margin-right: 50rem}
+        }
+        @keyframes welcomeanimationright {
+            from {margin-left: 0rem}
+            to {margin-left: 50rem}
+        }
+
+        input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+        body {
+
+            background-color: #a5a5a5;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='autumn' fill='%23c9c9c9' fill-opacity='0.05'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+
+        }
+    </style>
+    <script>
+        //setTimeout(
+        //    function() {
+        //        document.getElementById('setup-div').classList.remove('hidden');
+        //        document.getElementById('welcome-div').classList.add('hidden');
+        //        document.getElementById('setup-div').classList.add("animate__slideInLeft");
+        //        
+        //}, 3000);
+    </script>
+        
+</body>
+</html>

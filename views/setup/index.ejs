@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="tailwind.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="bg-black">
+    <div class="absolute w-full h-full">
+        <div id="welcome-div" class=" flex h-screen justify-center items-center animate__animated ">
+            <div id="animation-hider-1" style="width: 25%" class=" h-96 bg-black absolute welcomeanimation-left"></div>
+            <div id="animation-hider-2" style="width: 25%" class=" h-96 bg-black absolute welcomeanimation-right"></div>
+    
+            <div>
+                <p class="text-white text-center text-7xl font-black m-auto fontstyle">Welcome</p> 
+                <p class="text-zinc-200 text-center text-4xl font-light m-auto mt-2">your touchflow</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute w-full h-full">
+        <div id="connect-app-div" class="hidden flex h-screen justify-center items-center animate__animated">
+           <div>
+            <p class="text-white text-center text-5xl font-black m-auto fontstyle">Connect your Phone</p>
+            <p class="text-zinc-200 text-center text-4xl font-light m-auto mt-2">scan qr code to proceed</p>
+           
+            <div class="mt-28">
+                <img class="w-48 h-48 rounded-xl m-auto" src="https://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=penis&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+            </div> 
+        </div>
+
+           
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(() => {
+                document.getElementById("welcome-div").classList.add("animate__slideOutLeft");
+                document.getElementById("connect-app-div").classList.remove("hidden");
+                document.getElementById("connect-app-div").classList.add("animate__slideInRight");
+            }, 3000);
+        });
+    </script>
+
+    <style>
+        .fontstyle {
+            font-family:  Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            letter-spacing: 7px;
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+        }
+
+        .welcomeanimation-left {
+            animation-name: welcomeanimationleft;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+        .welcomeanimation-right {
+            animation-name: welcomeanimationright;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+
+        ::-ms-reveal {
+            filter: invert(100%);
+        }
+        
+        @keyframes welcomeanimationleft {
+            from {margin-right: 0rem}
+            to {margin-right: 60rem}
+        }
+        @keyframes welcomeanimationright {
+            from {margin-left: 0rem}
+            to {margin-left: 60rem}
+        }
+
+        input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+        body {
+
+            background-color: #a5a5a5;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='autumn' fill='%23c9c9c9' fill-opacity='0.05'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            overflow: hidden;
+
+
+        }
+    </style>
+</body>
+</html>
